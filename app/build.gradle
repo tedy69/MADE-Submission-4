@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "tech.tedybearblog.moviecatalogue4"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String" , "TMDB_URL_POSTER" , '"https://image.tmdb.org/t/p/w500"')
+        buildConfigField("String" , "TMDB_API_KEY" , '"ba122613f0733524d84f8210ae5fb4bf"')
+        buildConfigField("String" , "TMDB_URL_TV" , '"https://api.themoviedb.org/3/tv/"')
+        buildConfigField("String" , "TMDB_URL_MOVIE" , '"https://api.themoviedb.org/3/movie/"')
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0-beta04'
+    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'org.glassfish:javax.annotation:10.0-b28'
+    implementation 'com.loopj.android:android-async-http:1.4.9'
+
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha05'
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.2.0-alpha05"
+
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'com.sackcentury:shinebutton:1.0.0'
+
+    implementation "android.arch.persistence.room:runtime:1.1.1"
+    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
+
+    implementation 'androidx.preference:preference:1.1.0'
+    implementation 'org.jetbrains:annotations-java5:15.0'
+}
